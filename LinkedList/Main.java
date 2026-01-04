@@ -1,5 +1,6 @@
 package LinkedList;
 
+
 public class Main {
     public static void main(String[] args) {
         //Singly Linked List Operations
@@ -20,6 +21,7 @@ public class Main {
         l1.insertLast(55);
         l1.insertLast(85);
         l1.insertLast(95);
+        l1.insertRecursive(80,3);
         System.out.println(l1);
         l1 = LinkedList.swapPairs(l1);
         System.out.println(l1);

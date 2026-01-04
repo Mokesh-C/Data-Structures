@@ -162,4 +162,29 @@ public class LinkedList {
         return list;
     }
 
+    public void insertRecursive(int data , int index){
+        if(index < 0 || index > size){
+            throw new IndexOutOfBoundsException("Index out of bounds");
+        }
+        insertRecursiveHelper(this.head, data, index);
+    }
+
+    private void insertRecursiveHelper(Node temp , int data , int index){
+        if(index == 0){
+            Node newNode = new Node(data);
+            newNode.next = temp;
+            head = newNode;
+            size++;
+            return;
+        }
+        if(index == 1){
+            Node newNode = new Node(data);
+            newNode.next = temp.next;
+            temp.next = newNode;
+            size++;
+            return;
+        }
+        insertRecursiveHelper(temp.next, data, index - 1);
+    }
+
 }
