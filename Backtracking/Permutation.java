@@ -2,6 +2,7 @@ package Backtracking;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 
 public class Permutation {
     static ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
@@ -16,6 +17,13 @@ public class Permutation {
         ans.clear();
         permutation(arr, 0);
         System.out.println(ans);
+        ans.clear();
+
+        int[] nums = {1,1,1,2,3,2,5,5};
+        Arrays.sort(nums);
+        permutation2(nums, 0);
+        System.out.println(ans);
+
     }
 
     // T(n) = O(n*n!) because there are n! permutations and to store each permutation it takes O(n) time
@@ -55,6 +63,24 @@ public class Permutation {
         for(int i=0; i<=s.length(); i++){
             char ch = str.charAt(0);
             permutation(s.substring(0, i) + ch + s.substring(i), str.substring(1));
+        }
+    }
+
+    // With duplicates
+    public static void permutation2(int[] nums, int index){
+        if(index == nums.length){
+            ArrayList<Integer> list = new ArrayList<>();
+            for(int num: nums) list.add(num);
+            ans.add(list);
+            return;
+        }
+        HashSet<Integer> set = new HashSet<>();
+        for(int i=index; i<nums.length; i++){
+            if(set.contains(nums[i])) continue;
+            set.add(nums[i]);
+            if(nums[i] != nums[index]) swap(nums, i, index);
+            permutation2(nums, index+1);
+            if(nums[i] != nums[index]) swap(nums, i, index);
         }
     }
 
