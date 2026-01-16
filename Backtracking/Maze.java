@@ -3,8 +3,8 @@ package Backtracking;
 public class Maze {
     public static void main(String[] args) {
         int n = 3, m = 3;
-        System.out.println("Possible Path: " + possiblePathCount(n-1, m-1, new int[n][m]));
-        System.out.println("All Possible Paths: ");
+        System.out.println("Possible Path Count (Down & Right): " + possiblePathCount(n-1, m-1, new int[n][m]));
+        System.out.println("All Possible Paths (Down & Right): ");
         possiblePath("", n, m);
 
         // maze with obstacles
@@ -13,9 +13,9 @@ public class Maze {
                 {true, false, true},
                 {true, true, true}
         };
-        System.out.println("All Possible Paths in Maze with Obstacles: ");
-        mazePath("", maze, 0, 0);
-
+        System.out.println("All Possible Paths in Maze with Obstacles (Down & Right): ");
+        mazePath("", maze, 0, 0); // only down and right moves allowed
+        System.out.println();
     }
 
     private static void mazePath(String s, boolean[][] maze, int n, int m) {
