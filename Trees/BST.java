@@ -8,6 +8,7 @@ public class BST {
 
         public Node(int data){
             this.data = data;
+            this.height = 0;
         }
     }
     private Node root;
@@ -47,7 +48,7 @@ public class BST {
         return node;
     }
 
-    public boolean search(int data){
+    public boolean contains(int data){
         return search(root, data);
     }
 
