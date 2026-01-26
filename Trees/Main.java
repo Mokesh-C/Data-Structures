@@ -45,29 +45,5 @@ public class Main {
         System.out.println();
         System.out.println();
 
-        // AVL Tree operations
-        // AVL Tree is a self-balancing Binary Search Tree
-
-        AVL avl = new AVL();
-        for(int i=1; i<=100; i++){
-            avl.insert(i);
-        }
-        System.out.println("AVL Tree after inserting 1 to 100:");
-        avl.display();
-        System.out.println();
-
-        System.out.println("Height of AVL Tree: " + avl.height());
-        System.out.println();
-
-        // delete some nodes
-        avl.delete(50);
-        avl.delete(25);
-        avl.delete(75);
-        avl.delete(10);
-        System.out.println("AVL Tree after deletions:");
-        avl.display();
-
-        System.out.println("Height of AVL Tree after deletions: " + avl.height());
-        System.out.println();
     }
 }
